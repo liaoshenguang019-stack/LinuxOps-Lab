@@ -1,3 +1,20 @@
+LOG_DIR="../logs"
+
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+LOG_FILE="$LOG_DIR/system_check_$DATE.log"
+
+mkdir -p "$LOG_DIR"
+
+exec > "$LOG_FILE"
+
+exec 2>&1
+
+echo ""
+echo "巡检完成！"
+
+echo "日志保存位置：$LOG_FILE"
+
 #!/bin/bash
 
 echo "=========================="
